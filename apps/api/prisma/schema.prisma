@@ -1,0 +1,232 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─── Enums ───────────────────────────────────────────────────
+
+enum UserRole {
+  CLIENT
+  INTERVENANT
+  SECRETAIRE
+  ADMIN
+}
+
+enum IntervenantSpecialty {
+  INGENIEUR_CIVIL
+  INGENIEUR_ENERGIE
+  INGENIEUR_STRUCTURE
+  INGENIEUR_ENVIRONNEMENT
+  NOTAIRE
+  TOPOGRAPHE
+  ARCHITECTE
+  PLOMBERIE
+  MENUISERIE
+  ELECTRICITE
+  PEINTURE
+  TERRASSEMENT
+  BUREAU_CONTROLE
+  AUTRE
+}
+
+enum ProjectStage {
+  CONCEPTION
+  AUTORISATION
+  APPEL_OFFRES
+  REALISATION
+  RECEPTION
+  CONSTRUCTION
+  TERMINE
+}
+
+enum DocumentCategory {
+  PLAN
+  PERMIS
+  RAPPORT
+  CAHIER_CHARGES
+  DEVIS
+  APPEL_OFFRES
+  FACTURE
+  CONTRAT
+  AUTRE
+}
+
+enum BidStatus {
+  OUVERTE
+  EN_COURS
+  CLOTUREE
+  ANNULEE
+}
+
+enum OfferStatus {
+  SOUMISE
+  EN_EVALUATION
+  ACCEPTEE
+  REFUSEE
+}
+
+// ─── Models ──────────────────────────────────────────────────
+
+model User {
+  id              String               @id @default(cuid())
+  email           String               @unique
+  password        String
+  firstName       String
+  lastName        String
+  phone           String?
+  role            UserRole             @default(CLIENT)
+  specialty       IntervenantSpecialty?
+  isVerified      Boolean              @default(false)
+  identityDocUrl  String?
+  city            String?
+  latitude        Float?
+  longitude       Float?
+  createdAt       DateTime             @default(now())
+  updatedAt       DateTime             @updatedAt
+
+  // Relations
+  ownedProjects   Project[]            @relation("ProjectOwner")
+  secretaryOf     Project[]            @relation("ProjectSecretary")
+  projectMembers  ProjectMember[]
+  documents       Document[]
+  sentMessages    Message[]
+  bidsSubmitted   Offer[]
+  auditLogs       AuditLog[]
+
+  @@map("users")
+}
+
+model Project {
+  id            String       @id @default(cuid())
+  dossierNumber String       @unique @default(cuid())
+  title         String
+  description   String?
+  stage         ProjectStage @default(CONCEPTION)
+  city          String?
+  address       String?
+  startDate     DateTime?
+  endDate       DateTime?
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+
+  // Relations
+  ownerId       String
+  owner         User         @relation("ProjectOwner", fields: [ownerId], references: [id])
+  secretaryId   String?
+  secretary     User?        @relation("ProjectSecretary", fields: [secretaryId], references: [id])
+  members       ProjectMember[]
+  documents     Document[]
+  bids          Bid[]
+  messages      Message[]
+  auditLogs     AuditLog[]
+
+  @@map("projects")
+}
+
+model ProjectMember {
+  id        String   @id @default(cuid())
+  userId    String
+  projectId String
+  role      String   // e.g. "architecte_principal", "ingenieur_civil"
+  joinedAt  DateTime @default(now())
+
+  user      User     @relation(fields: [userId], references: [id])
+  project   Project  @relation(fields: [projectId], references: [id])
+
+  @@unique([userId, projectId])
+  @@map("project_members")
+}
+
+model Document {
+  id            String           @id @default(cuid())
+  name          String
+  description   String?
+  category      DocumentCategory @default(AUTRE)
+  objectKey     String           // Minio key
+  mimeType      String
+  size          Int
+  version       Int              @default(1)
+  parentId      String?          // previous version
+  accessRoles   UserRole[]
+  createdAt     DateTime         @default(now())
+  updatedAt     DateTime         @updatedAt
+
+  projectId     String
+  project       Project          @relation(fields: [projectId], references: [id])
+  uploadedById  String
+  uploadedBy    User             @relation(fields: [uploadedById], references: [id])
+
+  @@map("documents")
+}
+
+model Bid {
+  id          String    @id @default(cuid())
+  title       String
+  description String
+  task        String    // e.g. "Plomberie RDC"
+  specialty   IntervenantSpecialty?
+  status      BidStatus @default(OUVERTE)
+  deadline    DateTime?
+  budget      Float?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  projectId   String
+  project     Project   @relation(fields: [projectId], references: [id])
+  offers      Offer[]
+
+  @@map("bids")
+}
+
+model Offer {
+  id          String      @id @default(cuid())
+  content     String
+  price       Float?
+  timeline    String?
+  status      OfferStatus @default(SOUMISE)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  bidId       String
+  bid         Bid         @relation(fields: [bidId], references: [id])
+  submittedById String
+  submittedBy   User      @relation(fields: [submittedById], references: [id])
+
+  @@map("offers")
+}
+
+model Message {
+  id        String   @id @default(cuid())
+  content   String
+  readBy    String[]
+  createdAt DateTime @default(now())
+
+  projectId String
+  project   Project  @relation(fields: [projectId], references: [id])
+  senderId  String
+  sender    User     @relation(fields: [senderId], references: [id])
+
+  @@map("messages")
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  action    String
+  entity    String
+  entityId  String
+  before    Json?
+  after     Json?
+  ip        String?
+  createdAt DateTime @default(now())
+
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  projectId String?
+  project   Project? @relation(fields: [projectId], references: [id])
+
+  @@map("audit_logs")
+}

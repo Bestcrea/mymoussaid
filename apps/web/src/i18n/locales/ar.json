@@ -1,0 +1,128 @@
+{
+  "nav": {
+    "dashboard": "لوحة التحكم",
+    "projects": "المشاريع",
+    "documents": "الوثائق",
+    "bids": "طلبات العروض",
+    "messages": "الرسائل",
+    "logout": "تسجيل الخروج",
+    "language": "اللغة"
+  },
+  "auth": {
+    "login": "تسجيل الدخول",
+    "register": "إنشاء حساب",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "firstName": "الاسم الأول",
+    "lastName": "الاسم الأخير",
+    "phone": "الهاتف",
+    "role": "نوع الحساب",
+    "specialty": "التخصص",
+    "loginTitle": "تسجيل الدخول إلى حسابك",
+    "registerTitle": "إنشاء حسابك",
+    "noAccount": "ليس لديك حساب؟",
+    "hasAccount": "لديك حساب بالفعل؟",
+    "submitLogin": "تسجيل الدخول",
+    "submitRegister": "إنشاء حساب"
+  },
+  "project": {
+    "new": "مشروع جديد",
+    "title": "العنوان",
+    "description": "الوصف",
+    "stage": "المرحلة",
+    "dossier": "رقم الملف",
+    "myProjects": "مشاريعي",
+    "empty": "لا توجد مشاريع حالياً.",
+    "create": "إنشاء مشروع",
+    "detail": "تفاصيل المشروع",
+    "members": "الأعضاء",
+    "timeline": "التقدم"
+  },
+  "documents": {
+    "title": "الوثائق",
+    "upload": "رفع وثيقة",
+    "uploading": "جارٍ الرفع…",
+    "uploadError": "تعذر رفع الوثيقة.",
+    "download": "تحميل",
+    "empty": "لا توجد وثائق",
+    "noProject": "لا يوجد مشروع متاح",
+    "filterCategory": "الفئة",
+    "allCategories": "الكل",
+    "deleteConfirm": "حذف هذه الوثيقة؟"
+  },
+  "documentCategories": {
+    "PLAN": "مخطط",
+    "PERMIS": "ترخيص",
+    "RAPPORT": "تقرير",
+    "CAHIER_CHARGES": "دفتر الشروط",
+    "DEVIS": "تقدير",
+    "APPEL_OFFRES": "طلب عروض",
+    "FACTURE": "فاتورة",
+    "CONTRAT": "عقد",
+    "AUTRE": "أخرى"
+  },
+  "bids": {
+    "title": "طلبات العروض",
+    "new": "طلب عروض جديد",
+    "empty": "لا توجد طلبات عروض",
+    "status": "الحالة",
+    "deadline": "الموعد النهائي",
+    "offers": "العروض",
+    "submitOffer": "تقديم عرض",
+    "close": "إغلاق",
+    "open": "مفتوح",
+    "detail": "تفاصيل طلب العروض"
+  },
+  "bidStatus": {
+    "OUVERTE": "مفتوح",
+    "EN_COURS": "قيد التنفيذ",
+    "CLOTUREE": "مغلق",
+    "ANNULEE": "ملغى"
+  },
+  "messages": {
+    "title": "الرسائل",
+    "placeholder": "اكتب رسالتك…",
+    "send": "إرسال",
+    "empty": "لا توجد رسائل",
+    "selectProject": "اختر مشروعاً",
+    "unread": "رسائل غير مقروءة"
+  },
+  "dashboard": {
+    "greeting": "مرحباً {{name}} 👋",
+    "stats": {
+      "activeProjects": "المشاريع النشطة",
+      "documents": "الوثائق المرفوعة",
+      "openBids": "طلبات العروض المفتوحة",
+      "unreadMessages": "الرسائل غير المقروءة"
+    },
+    "recentProjects": "المشاريع الأخيرة",
+    "recentBids": "طلبات العروض الأخيرة",
+    "viewAll": "عرض الكل",
+    "noProjects": "لا توجد مشاريع حديثة",
+    "noBids": "لا توجد طلبات عروض مفتوحة"
+  },
+  "stages": {
+    "CONCEPTION": "التصميم",
+    "AUTORISATION": "الترخيص",
+    "APPEL_OFFRES": "طلبات العروض",
+    "REALISATION": "الإنجاز",
+    "RECEPTION": "الاستلام",
+    "CONSTRUCTION": "البناء",
+    "TERMINE": "منتهي"
+  },
+  "roles": {
+    "CLIENT": "صاحب المشروع",
+    "INTERVENANT": "مقاول",
+    "SECRETAIRE": "سكرتير",
+    "ADMIN": "مدير"
+  },
+  "common": {
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "submit": "إرسال",
+    "loading": "جارٍ التحميل…",
+    "error": "حدث خطأ"
+  }
+}

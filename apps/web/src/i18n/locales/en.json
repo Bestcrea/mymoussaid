@@ -1,0 +1,128 @@
+{
+  "nav": {
+    "dashboard": "Dashboard",
+    "projects": "Projects",
+    "documents": "Documents",
+    "bids": "Tenders",
+    "messages": "Messages",
+    "logout": "Logout",
+    "language": "Language"
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Create account",
+    "email": "Email address",
+    "password": "Password",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "phone": "Phone",
+    "role": "Account type",
+    "specialty": "Specialty",
+    "loginTitle": "Sign in to your account",
+    "registerTitle": "Create your account",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "submitLogin": "Sign in",
+    "submitRegister": "Sign up"
+  },
+  "project": {
+    "new": "New project",
+    "title": "Title",
+    "description": "Description",
+    "stage": "Stage",
+    "dossier": "File number",
+    "myProjects": "My Projects",
+    "empty": "No projects yet.",
+    "create": "Create project",
+    "detail": "Project detail",
+    "members": "Members",
+    "timeline": "Progress"
+  },
+  "documents": {
+    "title": "Documents",
+    "upload": "Upload document",
+    "uploading": "Uploading…",
+    "uploadError": "Could not upload document.",
+    "download": "Download",
+    "empty": "No documents",
+    "noProject": "No project available",
+    "filterCategory": "Category",
+    "allCategories": "All",
+    "deleteConfirm": "Delete this document?"
+  },
+  "documentCategories": {
+    "PLAN": "Plan",
+    "PERMIS": "Permit",
+    "RAPPORT": "Report",
+    "CAHIER_CHARGES": "Specifications",
+    "DEVIS": "Quote",
+    "APPEL_OFFRES": "Tender",
+    "FACTURE": "Invoice",
+    "CONTRAT": "Contract",
+    "AUTRE": "Other"
+  },
+  "bids": {
+    "title": "Tenders",
+    "new": "New tender",
+    "empty": "No tenders",
+    "status": "Status",
+    "deadline": "Deadline",
+    "offers": "Offers",
+    "submitOffer": "Submit offer",
+    "close": "Close",
+    "open": "Open",
+    "detail": "Tender detail"
+  },
+  "bidStatus": {
+    "OUVERTE": "Open",
+    "EN_COURS": "In progress",
+    "CLOTUREE": "Closed",
+    "ANNULEE": "Cancelled"
+  },
+  "messages": {
+    "title": "Messages",
+    "placeholder": "Write your message…",
+    "send": "Send",
+    "empty": "No messages",
+    "selectProject": "Select a project",
+    "unread": "Unread messages"
+  },
+  "dashboard": {
+    "greeting": "Hello {{name}} 👋",
+    "stats": {
+      "activeProjects": "Active projects",
+      "documents": "Uploaded documents",
+      "openBids": "Open tenders",
+      "unreadMessages": "Unread messages"
+    },
+    "recentProjects": "Recent projects",
+    "recentBids": "Recent tenders",
+    "viewAll": "View all",
+    "noProjects": "No recent projects",
+    "noBids": "No open tenders"
+  },
+  "stages": {
+    "CONCEPTION": "Design",
+    "AUTORISATION": "Permit",
+    "APPEL_OFFRES": "Tenders",
+    "REALISATION": "Execution",
+    "RECEPTION": "Handover",
+    "CONSTRUCTION": "Construction",
+    "TERMINE": "Completed"
+  },
+  "roles": {
+    "CLIENT": "Client",
+    "INTERVENANT": "Contractor",
+    "SECRETAIRE": "Secretary",
+    "ADMIN": "Administrator"
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "submit": "Submit",
+    "loading": "Loading…",
+    "error": "An error occurred"
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "nav": {
+    "dashboard": "Tableau de bord",
+    "projects": "Projets",
+    "documents": "Documents",
+    "bids": "Appels d'offres",
+    "messages": "Messages",
+    "logout": "Déconnexion",
+    "language": "Langue"
+  },
+  "auth": {
+    "login": "Connexion",
+    "register": "Créer un compte",
+    "email": "Adresse e-mail",
+    "password": "Mot de passe",
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "phone": "Téléphone",
+    "role": "Type de compte",
+    "specialty": "Spécialité",
+    "loginTitle": "Connexion à votre espace",
+    "registerTitle": "Créer votre compte",
+    "noAccount": "Pas encore de compte ?",
+    "hasAccount": "Déjà un compte ?",
+    "submitLogin": "Se connecter",
+    "submitRegister": "S'inscrire"
+  },
+  "project": {
+    "new": "Nouveau projet",
+    "title": "Titre",
+    "description": "Description",
+    "stage": "Étape",
+    "dossier": "N° dossier",
+    "myProjects": "Mes Projets",
+    "empty": "Aucun projet pour le moment.",
+    "create": "Créer un projet",
+    "detail": "Détail du projet",
+    "members": "Membres",
+    "timeline": "Avancement"
+  },
+  "documents": {
+    "title": "Documents",
+    "upload": "Uploader un document",
+    "uploading": "Upload en cours…",
+    "uploadError": "Impossible d'uploader le document.",
+    "download": "Télécharger",
+    "empty": "Aucun document",
+    "noProject": "Aucun projet disponible",
+    "filterCategory": "Catégorie",
+    "allCategories": "Toutes",
+    "deleteConfirm": "Supprimer ce document ?"
+  },
+  "documentCategories": {
+    "PLAN": "Plan",
+    "PERMIS": "Permis",
+    "RAPPORT": "Rapport",
+    "CAHIER_CHARGES": "Cahier des charges",
+    "DEVIS": "Devis",
+    "APPEL_OFFRES": "Appel d'offres",
+    "FACTURE": "Facture",
+    "CONTRAT": "Contrat",
+    "AUTRE": "Autre"
+  },
+  "bids": {
+    "title": "Appels d'offres",
+    "new": "Nouvel appel d'offres",
+    "empty": "Aucun appel d'offres",
+    "status": "Statut",
+    "deadline": "Date limite",
+    "offers": "Offres",
+    "submitOffer": "Soumettre une offre",
+    "close": "Clôturer",
+    "open": "Ouverte",
+    "detail": "Détail de l'appel d'offres"
+  },
+  "bidStatus": {
+    "OUVERTE": "Ouverte",
+    "EN_COURS": "En cours",
+    "CLOTUREE": "Clôturée",
+    "ANNULEE": "Annulée"
+  },
+  "messages": {
+    "title": "Messages",
+    "placeholder": "Écrivez votre message…",
+    "send": "Envoyer",
+    "empty": "Aucun message",
+    "selectProject": "Sélectionnez un projet",
+    "unread": "Messages non lus"
+  },
+  "dashboard": {
+    "greeting": "Bonjour {{name}} 👋",
+    "stats": {
+      "activeProjects": "Projets actifs",
+      "documents": "Documents uploadés",
+      "openBids": "Appels d'offres ouverts",
+      "unreadMessages": "Messages non lus"
+    },
+    "recentProjects": "Projets récents",
+    "recentBids": "AO récents",
+    "viewAll": "Voir tout",
+    "noProjects": "Aucun projet récent",
+    "noBids": "Aucun appel d'offres ouvert"
+  },
+  "stages": {
+    "CONCEPTION": "Conception",
+    "AUTORISATION": "Autorisation",
+    "APPEL_OFFRES": "Appels d'offres",
+    "REALISATION": "Réalisation",
+    "RECEPTION": "Réception",
+    "CONSTRUCTION": "Construction",
+    "TERMINE": "Terminé"
+  },
+  "roles": {
+    "CLIENT": "Maître d'ouvrage",
+    "INTERVENANT": "Intervenant",
+    "SECRETAIRE": "Secrétaire",
+    "ADMIN": "Administrateur"
+  },
+  "common": {
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "submit": "Soumettre",
+    "loading": "Chargement…",
+    "error": "Une erreur est survenue"
+  }
+}

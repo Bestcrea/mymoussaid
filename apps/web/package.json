@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
-    "@ma/shared": "workspace:*",
     "@tanstack/react-query": "^5.40.0",
     "@tanstack/react-query-devtools": "^5.40.0",
     "axios": "^1.7.0",

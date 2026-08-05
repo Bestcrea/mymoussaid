@@ -7,8 +7,8 @@ import type {
   CreateBidInput,
   IntervenantSpecialty,
   SubmitOfferInput,
-} from "@ma/shared";
-import { SPECIALTY_LABELS } from "@ma/shared";
+} from "@/shared";
+import { SPECIALTY_LABELS } from "@/shared";
 import {
   BID_STATUS_BADGE,
   BID_STATUS_LABELS,

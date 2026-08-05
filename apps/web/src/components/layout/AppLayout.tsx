@@ -10,8 +10,8 @@ import {
   IdentificationIcon,
   MegaphoneIcon,
 } from "@heroicons/react/24/outline";
-import type { UserRole } from "@ma/shared";
-import { SPECIALTY_LABELS, USER_ROLE_LABELS } from "@ma/shared";
+import type { UserRole } from "@/shared";
+import { SPECIALTY_LABELS, USER_ROLE_LABELS } from "@/shared";
 import { api } from "../../lib/api";
 import { connectSocket, disconnectSocket } from "../../lib/socket";
 import { useAuthStore } from "../../store/authStore";

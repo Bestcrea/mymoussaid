@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import axios from "axios";
-import type { LoginInput } from "@ma/shared";
+import type { LoginInput } from "@/shared";
 import { api } from "../lib/api";
 import { connectSocket } from "../lib/socket";
 import { useAuthStore } from "../store/authStore";

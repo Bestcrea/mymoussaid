@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
-import type { BidStatus, OfferStatus, SubmitOfferInput } from "@ma/shared";
-import { SPECIALTY_LABELS } from "@ma/shared";
+import type { BidStatus, OfferStatus, SubmitOfferInput } from "@/shared";
+import { SPECIALTY_LABELS } from "@/shared";
 import {
   BID_STATUS_BADGE,
   BID_STATUS_LABELS,

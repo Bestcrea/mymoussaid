@@ -1,5 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import type { Document, DocumentCategory } from "@ma/shared";
+import type { Document, DocumentCategory } from "@/shared";
 import { api } from "../lib/api";
 
 export function useDocuments(projectId: string | undefined) {

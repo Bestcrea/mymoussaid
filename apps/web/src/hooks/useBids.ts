@@ -6,7 +6,7 @@ import type {
   IntervenantSpecialty,
   OfferStatus,
   SubmitOfferInput,
-} from "@ma/shared";
+} from "@/shared";
 import { api } from "../lib/api";
 
 export interface BidListItem extends Omit<Bid, "offersCount"> {

@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router-dom";
-import type { ProjectStage } from "@ma/shared";
-import { PROJECT_STAGES } from "@ma/shared";
+import type { ProjectStage } from "@/shared";
+import { PROJECT_STAGES } from "@/shared";
 import {
   PROJECT_STAGE_ORDER,
   STAGE_BADGE_CLASSES,

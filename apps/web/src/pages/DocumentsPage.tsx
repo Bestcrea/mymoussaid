@@ -1,8 +1,8 @@
 import { useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
-import type { DocumentCategory } from "@ma/shared";
-import { DOCUMENT_CATEGORY_LABELS } from "@ma/shared";
+import type { DocumentCategory } from "@/shared";
+import { DOCUMENT_CATEGORY_LABELS } from "@/shared";
 import { useProjects } from "../hooks/useProjects";
 import {
   DOCUMENT_ICON_CLASSES,

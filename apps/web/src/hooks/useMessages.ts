@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import type { SendMessageInput } from "@ma/shared";
+import type { SendMessageInput } from "@/shared";
 import { api } from "../lib/api";
 import { getSocket, joinProject, leaveProject } from "../lib/socket";
 import { useMessageStore } from "../store/messageStore";

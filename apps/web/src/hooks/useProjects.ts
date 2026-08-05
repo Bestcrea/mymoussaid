@@ -1,5 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import type { CreateProjectInput, Project, ProjectStage, UpdateProjectStageInput } from "@ma/shared";
+import type { CreateProjectInput, Project, ProjectStage, UpdateProjectStageInput } from "@/shared";
 import { api } from "../lib/api";
 
 export interface ProjectMember {

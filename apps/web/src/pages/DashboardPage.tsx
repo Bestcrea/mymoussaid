@@ -16,8 +16,8 @@ import type {
   OfferStatus,
   ProjectStage,
   UserRole,
-} from "@ma/shared";
-import { SPECIALTY_LABELS } from "@ma/shared";
+} from "@/shared";
+import { SPECIALTY_LABELS } from "@/shared";
 import { api } from "../lib/api";
 import {
   OFFER_STATUS_BADGE,

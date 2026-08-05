@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import type { CreateProjectInput, ProjectStage } from "@ma/shared";
-import { PROJECT_STAGES } from "@ma/shared";
+import type { CreateProjectInput, ProjectStage } from "@/shared";
+import { PROJECT_STAGES } from "@/shared";
 import {
   STAGE_BADGE_CLASSES,
   useCreateProject,

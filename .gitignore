@@ -1,6 +1,8 @@
 # Dependencies
 node_modules/
 .pnpm-store/
+pnpm-workspace.yaml
+pnpm-lock.yaml
 
 # Environment & secrets
 .env

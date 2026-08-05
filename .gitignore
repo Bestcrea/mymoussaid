@@ -16,11 +16,8 @@ apps/*/.env.*
 # Builds
 dist/
 build/
+public_html/
 *.tsbuildinfo
-
-# Keep frontend production build for Hostinger static deploy
-!apps/web/dist/
-!apps/web/dist/**
 
 # Logs & caches
 logs/

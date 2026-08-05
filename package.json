@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "npm run build:web",
-    "build:web": "cd apps/web && npm install && npm run build",
+    "build": "cd apps/web && npm install && npm run build",
     "start": "node apps/api/dist/index.js"
   },
   "engines": {

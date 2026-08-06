@@ -947,6 +947,14 @@ export function RegisterPage() {
     setFormStep(1);
     setErrors({});
     setServerError(null);
+    if (id === "personne_morale") {
+      setFormData((prev) => ({
+        ...prev,
+        organizedAsCompany: true,
+        saveBilling: true,
+        billingType: "personne_morale",
+      }));
+    }
   }
 
   function goNext() {

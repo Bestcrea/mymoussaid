@@ -42,3 +42,4 @@ apps/api/prisma/*.db-journal
 uploads/
 tmp/
 temp/
+public_html/

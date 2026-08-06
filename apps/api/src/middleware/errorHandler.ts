@@ -52,6 +52,7 @@ export function errorHandler(
   if (err instanceof AppError) {
     res.status(err.statusCode).json({
       error: err.message,
+      message: err.message,
       code: err.code ?? "APP_ERROR",
     });
     return;

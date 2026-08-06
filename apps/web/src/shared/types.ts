@@ -1,5 +1,7 @@
 export type UserRole = "CLIENT" | "INTERVENANT" | "SECRETAIRE" | "ADMIN";
 
+export type AccountStatus = "PENDING" | "APPROVED" | "REJECTED" | "SUSPENDED";
+
 export type ProjectStage =
   | "CONCEPTION"
   | "AUTORISATION"

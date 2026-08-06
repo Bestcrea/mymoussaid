@@ -1,4 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
+import type { UserRole } from "@/shared";
 import { useAuthStore } from "./store/authStore";
 import { PublicLayout } from "./components/layout/PublicLayout";
 import { AppLayout } from "./components/layout/AppLayout";
@@ -15,6 +16,7 @@ import { ChefProjetPage } from "./pages/public/roles/ChefProjetPage";
 import { PartenairePage } from "./pages/public/roles/PartenairePage";
 import { LoginPage } from "./pages/LoginPage";
 import { RegisterPage } from "./pages/RegisterPage";
+import { RegisterSuccessPage } from "./pages/RegisterSuccessPage";
 import { ForgotPasswordPage } from "./pages/ForgotPasswordPage";
 import { DashboardPage } from "./pages/DashboardPage";
 import { ProjectsPage } from "./pages/ProjectsPage";
@@ -23,10 +25,19 @@ import { DocumentsPage } from "./pages/DocumentsPage";
 import { BidsPage } from "./pages/BidsPage";
 import { BidDetailPage } from "./pages/BidDetailPage";
 import { MessagesPage } from "./pages/MessagesPage";
+import { AdminUsersPage } from "./pages/admin/AdminUsersPage";
 
-function RequireAuth({ children }: { children: React.ReactNode }) {
+function RequireAuth({
+  children,
+  role,
+}: {
+  children: React.ReactNode;
+  role?: UserRole;
+}) {
   const user = useAuthStore((s) => s.user);
-  return user ? <>{children}</> : <Navigate to="/login" replace />;
+  if (!user) return <Navigate to="/login" replace />;
+  if (role && user.role !== role) return <Navigate to="/dashboard" replace />;
+  return <>{children}</>;
 }
 
 export default function App() {
@@ -50,6 +61,7 @@ export default function App() {
       <Route element={<AuthLayout />}>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/register/success" element={<RegisterSuccessPage />} />
         <Route path="/forgot-password" element={<ForgotPasswordPage />} />
       </Route>
 
@@ -66,6 +78,14 @@ export default function App() {
         <Route path="/offers" element={<BidsPage />} />
         <Route path="/profile" element={<DashboardPage />} />
         <Route path="/messages" element={<MessagesPage />} />
+        <Route
+          path="/admin/users"
+          element={
+            <RequireAuth role="ADMIN">
+              <AdminUsersPage />
+            </RequireAuth>
+          }
+        />
       </Route>
     </Routes>
   );

@@ -9,6 +9,7 @@ import {
   HomeIcon,
   IdentificationIcon,
   MegaphoneIcon,
+  UsersIcon,
 } from "@heroicons/react/24/outline";
 import type { UserRole } from "@/shared";
 import { SPECIALTY_LABELS, USER_ROLE_LABELS } from "@/shared";
@@ -53,6 +54,7 @@ const NAV_ITEMS: Record<
     { to: "/documents", label: "Documents", icon: DocumentTextIcon },
     { to: "/bids", label: "Appels d'offres", icon: MegaphoneIcon },
     { to: "/messages", label: "Messages", icon: ChatBubbleLeftRightIcon },
+    { to: "/admin/users", label: "Comptes", icon: UsersIcon },
   ],
 };
 

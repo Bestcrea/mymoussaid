@@ -16,6 +16,13 @@ enum UserRole {
   ADMIN
 }
 
+enum AccountStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  SUSPENDED
+}
+
 enum IntervenantSpecialty {
   INGENIEUR_CIVIL
   INGENIEUR_ENERGIE
@@ -85,6 +92,25 @@ model User {
   city            String?
   latitude        Float?
   longitude       Float?
+  status          AccountStatus        @default(PENDING)
+  accountType     String?
+  civility        String?
+  cinNumber       String?
+  firstNameAr     String?
+  lastNameAr      String?
+  address         String?
+  licenseNumber   String?
+  regionalCouncil String?
+  billingType     String?
+  billingName     String?
+  billingCity     String?
+  billingAddress  String?
+  billingCin      String?
+  billingIce      String?
+  billingRc       String?
+  rejectionReason String?
+  approvedAt      DateTime?
+  rejectedAt      DateTime?
   createdAt       DateTime             @default(now())
   updatedAt       DateTime             @updatedAt
 

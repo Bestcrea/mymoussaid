@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import {
   BuildingOffice2Icon,
@@ -66,21 +67,23 @@ const WHY_US = [
 ] as const;
 
 export function ServicesPage() {
+  const { t } = useTranslation();
+
   return (
     <>
       <section className="bg-neutral-900 pt-20 pb-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <nav className="mb-4 text-sm text-neutral-400">
-            <Link to="/" className="hover:text-brand-400">Accueil</Link>
+            <Link to="/" className="hover:text-brand-400">{t("nav.home")}</Link>
             <span className="mx-2">/</span>
-            <span className="text-brand-400">Services</span>
+            <span className="text-brand-400">{t("nav.services")}</span>
           </nav>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="font-display text-4xl font-semibold text-white sm:text-5xl"
           >
-            Nos Services
+            {t("services.title")}
           </motion.h1>
           <p className="mt-4 max-w-2xl text-lg text-neutral-400">
             Des prestations complètes pour mener vos projets d'architecture et d'urbanisme de A à Z.

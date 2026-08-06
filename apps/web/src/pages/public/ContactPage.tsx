@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { motion, AnimatePresence } from "framer-motion";
@@ -123,6 +124,7 @@ function OpeningHours() {
 }
 
 export function ContactPage() {
+  const { t } = useTranslation();
   const [toast, setToast] = useState(false);
 
   const {
@@ -157,9 +159,9 @@ export function ContactPage() {
       <section className="bg-neutral-900 pt-20 pb-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <nav className="mb-4 text-sm text-neutral-400">
-            <Link to="/" className="hover:text-brand-400">Accueil</Link>
+            <Link to="/" className="hover:text-brand-400">{t("nav.home")}</Link>
             <span className="mx-2">/</span>
-            <span className="text-brand-400">Contact</span>
+            <span className="text-brand-400">{t("nav.contact")}</span>
           </nav>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}

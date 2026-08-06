@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 import { SectionContainer } from "./SectionContainer";
@@ -209,6 +210,7 @@ function FeatureItem({ text }: { text: string }) {
 }
 
 export function PlatformSlider() {
+  const { t } = useTranslation();
   const [current, setCurrent] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [progressKey, setProgressKey] = useState(0);
@@ -238,10 +240,10 @@ export function PlatformSlider() {
     <section className="bg-white pb-[60px] pt-20">
       <SectionContainer className="text-center">
         <h2 className="mb-4 text-[42px] font-bold leading-tight text-[#1C1917]">
-          Une plateforme pensée pour vous
+          {t("platform.title")}
         </h2>
         <p className="mb-6 text-lg text-[#6B7280]">
-          De l&apos;inscription au suivi de chantier, tout en un seul endroit
+          {t("platform.subtitle")}
         </p>
         <div className="mx-auto mb-12 h-0.5 w-10 bg-[#C47A1E]" />
       </SectionContainer>

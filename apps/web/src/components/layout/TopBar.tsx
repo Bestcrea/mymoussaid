@@ -100,7 +100,7 @@ function LanguageSwitcherTopBar() {
   }, [open]);
 
   const selectLanguage = (code: LanguageCode) => {
-    changeLanguage(code);
+    void changeLanguage(code);
     setOpen(false);
   };
 
@@ -114,7 +114,9 @@ function LanguageSwitcherTopBar() {
         aria-expanded={open}
       >
         <GlobeIcon />
-        <span>{currentLang.label}</span>
+        <span>
+          {currentLang.flag} {currentLang.label}
+        </span>
         <ChevronIcon open={open} />
       </button>
 
@@ -151,6 +153,7 @@ function LanguageSwitcherTopBar() {
 
 export function TopBar() {
   const { topBarVisible } = useScroll();
+  const { t } = useLanguage();
 
   return (
     <motion.div
@@ -170,7 +173,7 @@ export function TopBar() {
             className="flex items-center gap-1.5 text-xs text-white/80 transition-colors duration-200 hover:text-[#C47A1E]"
           >
             <PhoneIcon />
-            <span>+212 5 22 00 00 00</span>
+            <span>{t("topbar.phone")}</span>
           </a>
 
           <span className="hidden h-4 w-px bg-white/20 md:block" aria-hidden />
@@ -182,7 +185,7 @@ export function TopBar() {
             className="hidden items-center gap-1.5 text-xs text-white/80 transition-colors duration-200 hover:text-[#C47A1E] md:flex"
           >
             <MapPinIcon />
-            <span>Rue Omar Ibn Al Khattab, Khémisset</span>
+            <span>{t("topbar.address")}</span>
           </a>
         </div>
 

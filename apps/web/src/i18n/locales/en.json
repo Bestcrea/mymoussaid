@@ -6,7 +6,14 @@
     "bids": "Tenders",
     "messages": "Messages",
     "logout": "Logout",
-    "language": "Language"
+    "language": "Language",
+    "home": "Home",
+    "services": "Services",
+    "roles": "Roles",
+    "contact": "Contact",
+    "about": "About",
+    "login": "Login",
+    "register": "Sign up"
   },
   "auth": {
     "login": "Login",
@@ -124,5 +131,63 @@
     "submit": "Submit",
     "loading": "Loading…",
     "error": "An error occurred"
+  },
+  "topbar": {
+    "phone": "+212 5 22 00 00 00",
+    "address": "Omar Ibn Al Khattab St., Khémisset"
+  },
+  "hero": {
+    "title1": "Let's build together",
+    "title2": "the architecture of tomorrow",
+    "subtitle": "Architecture and urban planning firm in Morocco",
+    "cta_primary": "Start a project",
+    "cta_secondary": "Discover our services"
+  },
+  "stats": {
+    "projects": "Projects completed",
+    "experience": "years of experience",
+    "clients": "Satisfied clients",
+    "partners": "Partner specialists"
+  },
+  "platform": {
+    "title": "A platform designed for you",
+    "subtitle": "From registration to site monitoring, all in one place"
+  },
+  "roles_section": {
+    "title": "A solution for every actor",
+    "subtitle": "Each role has tools adapted to its needs",
+    "learn_more": "Discover this role"
+  },
+  "cta": {
+    "title": "Ready to transform your projects?",
+    "subtitle": "Join the MyMoussaid platform and manage your sites with excellence.",
+    "button": "Create a free account"
+  },
+  "footer": {
+    "tagline": "Architecture and urban planning firm",
+    "nav_title": "NAVIGATION",
+    "roles_title": "ROLES",
+    "contact_title": "CONTACT",
+    "hours": "Mon-Fri 9am-6pm",
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy"
+  },
+  "publicRoles": {
+    "manager": "Project Manager",
+    "intervenant": "Specialist",
+    "secretaire": "Secretary",
+    "chef_projet": "Project Leader",
+    "partenaire": "Partner"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Complete solutions for your architectural projects",
+    "architecture": "Architecture",
+    "architecture_desc": "Design and monitoring of architectural projects",
+    "urbanism": "Urban Planning",
+    "urbanism_desc": "Urban studies and planning",
+    "management": "File Management",
+    "management_desc": "Administrative and regulatory follow-up",
+    "see_all": "See all services"
   }
 }

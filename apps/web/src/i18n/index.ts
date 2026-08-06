@@ -9,24 +9,32 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    resources: { fr: { translation: fr }, ar: { translation: ar }, en: { translation: en } },
+    resources: {
+      fr: { translation: fr },
+      ar: { translation: ar },
+      en: { translation: en },
+    },
     fallbackLng: "fr",
     supportedLngs: ["fr", "ar", "en"],
     interpolation: { escapeValue: false },
     detection: {
-      order: ["localStorage"],
+      order: ["localStorage", "navigator"],
       caches: ["localStorage"],
-      lookupLocalStorage: "i18n-language",
+      lookupLocalStorage: "i18nextLng",
     },
   });
 
-// Set RTL direction for Arabic
-function applyDocumentLanguage(lng: string) {
-  document.documentElement.dir = lng === "ar" ? "rtl" : "ltr";
-  document.documentElement.lang = lng;
-}
+i18n.on("languageChanged", (lng) => {
+  const code = lng.split("-")[0] ?? lng;
+  document.documentElement.dir = code === "ar" ? "rtl" : "ltr";
+  document.documentElement.lang = code;
+});
 
-i18n.on("languageChanged", applyDocumentLanguage);
-applyDocumentLanguage(i18n.language);
+// Apply on first load
+{
+  const code = (i18n.language ?? "fr").split("-")[0] ?? "fr";
+  document.documentElement.dir = code === "ar" ? "rtl" : "ltr";
+  document.documentElement.lang = code;
+}
 
 export default i18n;

@@ -5,18 +5,18 @@ import { Logo } from "../ui/Logo";
 import { useLanguage, type LanguageCode } from "../../hooks/useLanguage";
 
 const NAV_LINKS = [
-  { to: "/", label: "Accueil" },
-  { to: "/services", label: "Services" },
-  { to: "/about", label: "À propos" },
-  { to: "/contact", label: "Contact" },
+  { to: "/", labelKey: "nav.home" },
+  { to: "/services", labelKey: "nav.services" },
+  { to: "/about", labelKey: "nav.about" },
+  { to: "/contact", labelKey: "nav.contact" },
 ] as const;
 
 const ROLE_LINKS = [
-  { to: "/roles/manager", label: "Manager" },
-  { to: "/roles/intervenant", label: "Intervenant" },
-  { to: "/roles/secretaire", label: "Secrétaire" },
-  { to: "/roles/chef-projet", label: "Chef de projet" },
-  { to: "/roles/partenaire", label: "Partenaire" },
+  { to: "/roles/manager", labelKey: "publicRoles.manager" },
+  { to: "/roles/intervenant", labelKey: "publicRoles.intervenant" },
+  { to: "/roles/secretaire", labelKey: "publicRoles.secretaire" },
+  { to: "/roles/chef-projet", labelKey: "publicRoles.chef_projet" },
+  { to: "/roles/partenaire", labelKey: "publicRoles.partenaire" },
 ] as const;
 
 function MapPinIcon() {
@@ -191,7 +191,7 @@ function FooterLanguageSwitcher() {
   }, [open]);
 
   const selectLanguage = (code: LanguageCode) => {
-    changeLanguage(code);
+    void changeLanguage(code);
     setOpen(false);
   };
 
@@ -254,6 +254,8 @@ function FooterLanguageSwitcher() {
 }
 
 export function PublicFooter() {
+  const { t } = useLanguage();
+
   return (
     <footer className="bg-neutral-900 text-neutral-300">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
@@ -263,7 +265,7 @@ export function PublicFooter() {
               <Logo size="lg" variant="dark" linkTo="/" />
             </div>
             <p className="mt-3 text-[13px] leading-relaxed text-[#9CA3AF]">
-              Cabinet d'architecture et d'urbanisme
+              {t("footer.tagline")}
             </p>
             <div className="mt-5 flex gap-3">
               {SOCIAL_LINKS.map((social) => (
@@ -281,7 +283,7 @@ export function PublicFooter() {
 
           <div>
             <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white">
-              Navigation
+              {t("footer.nav_title")}
             </h3>
             <ul className="space-y-2">
               {NAV_LINKS.map((link) => (
@@ -290,7 +292,7 @@ export function PublicFooter() {
                     to={link.to}
                     className="text-sm text-neutral-400 transition-colors hover:text-brand-400"
                   >
-                    {link.label}
+                    {t(link.labelKey)}
                   </Link>
                 </li>
               ))}
@@ -299,7 +301,7 @@ export function PublicFooter() {
 
           <div>
             <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white">
-              Rôles
+              {t("footer.roles_title")}
             </h3>
             <ul className="space-y-2">
               {ROLE_LINKS.map((link) => (
@@ -308,7 +310,7 @@ export function PublicFooter() {
                     to={link.to}
                     className="text-sm text-neutral-400 transition-colors hover:text-brand-400"
                   >
-                    {link.label}
+                    {t(link.labelKey)}
                   </Link>
                 </li>
               ))}
@@ -317,13 +319,13 @@ export function PublicFooter() {
 
           <div>
             <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white">
-              Contact
+              {t("footer.contact_title")}
             </h3>
             <ul className="space-y-3">
               <ContactRow icon={<MapPinIcon />}>
-                Rue Omar Ibn Al Khattab, Khémisset
+                {t("topbar.address")}
               </ContactRow>
-              <ContactRow icon={<PhoneIcon />}>+212 5 22 00 00 00</ContactRow>
+              <ContactRow icon={<PhoneIcon />}>{t("topbar.phone")}</ContactRow>
               <ContactRow icon={<MailIcon />}>
                 <a
                   href="mailto:contact@mymoussaid.ma"
@@ -332,7 +334,7 @@ export function PublicFooter() {
                   contact@mymoussaid.ma
                 </a>
               </ContactRow>
-              <ContactRow icon={<ClockIcon />}>Lun-Ven 9h-18h</ContactRow>
+              <ContactRow icon={<ClockIcon />}>{t("footer.hours")}</ContactRow>
             </ul>
           </div>
         </div>
@@ -340,7 +342,7 @@ export function PublicFooter() {
         <div className="mt-12 border-t border-brand-500/40 pt-8">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
             <p className="text-sm text-neutral-500">
-              © 2026 MyMoussaid. Tous droits réservés.
+              © 2026 MyMoussaid. {t("footer.rights")}
             </p>
             <div className="flex items-center gap-5">
               <FooterLanguageSwitcher />
@@ -348,7 +350,7 @@ export function PublicFooter() {
                 to="/privacy"
                 className="text-sm text-neutral-400 transition-colors hover:text-brand-400"
               >
-                Politique de confidentialité
+                {t("footer.privacy")}
               </Link>
             </div>
           </div>

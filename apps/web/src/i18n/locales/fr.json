@@ -6,7 +6,14 @@
     "bids": "Appels d'offres",
     "messages": "Messages",
     "logout": "Déconnexion",
-    "language": "Langue"
+    "language": "Langue",
+    "home": "Accueil",
+    "services": "Services",
+    "roles": "Rôles",
+    "contact": "Contact",
+    "about": "À propos",
+    "login": "Se connecter",
+    "register": "S'inscrire"
   },
   "auth": {
     "login": "Connexion",
@@ -124,5 +131,63 @@
     "submit": "Soumettre",
     "loading": "Chargement…",
     "error": "Une erreur est survenue"
+  },
+  "topbar": {
+    "phone": "+212 5 22 00 00 00",
+    "address": "Rue Omar Ibn Al Khattab, Khémisset"
+  },
+  "hero": {
+    "title1": "Bâtissons ensemble",
+    "title2": "l'architecture de demain",
+    "subtitle": "Cabinet d'architecture et d'urbanisme au Maroc",
+    "cta_primary": "Démarrer un projet",
+    "cta_secondary": "Découvrir nos services"
+  },
+  "stats": {
+    "projects": "Projets réalisés",
+    "experience": "ans d'expérience",
+    "clients": "Clients satisfaits",
+    "partners": "Intervenants partenaires"
+  },
+  "platform": {
+    "title": "Une plateforme pensée pour vous",
+    "subtitle": "De l'inscription au suivi de chantier, tout en un seul endroit"
+  },
+  "roles_section": {
+    "title": "Une solution pour chaque acteur",
+    "subtitle": "Chaque rôle dispose d'outils adaptés à ses besoins",
+    "learn_more": "Découvrir ce rôle"
+  },
+  "cta": {
+    "title": "Prêt à transformer vos projets ?",
+    "subtitle": "Rejoignez la plateforme MyMoussaid et pilotez vos chantiers avec excellence.",
+    "button": "Créer un compte gratuitement"
+  },
+  "footer": {
+    "tagline": "Cabinet d'architecture et d'urbanisme",
+    "nav_title": "NAVIGATION",
+    "roles_title": "RÔLES",
+    "contact_title": "CONTACT",
+    "hours": "Lun-Ven 9h-18h",
+    "rights": "Tous droits réservés.",
+    "privacy": "Politique de confidentialité"
+  },
+  "publicRoles": {
+    "manager": "Manager",
+    "intervenant": "Intervenant",
+    "secretaire": "Secrétaire",
+    "chef_projet": "Chef de projet",
+    "partenaire": "Partenaire"
+  },
+  "services": {
+    "title": "Nos Services",
+    "subtitle": "Des solutions complètes pour vos projets architecturaux",
+    "architecture": "Architecture",
+    "architecture_desc": "Conception et suivi de projets architecturaux",
+    "urbanism": "Urbanisme",
+    "urbanism_desc": "Études et planification urbaine",
+    "management": "Gestion de dossiers",
+    "management_desc": "Suivi administratif et réglementaire",
+    "see_all": "Voir tous les services"
   }
 }

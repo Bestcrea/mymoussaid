@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import {
   ArrowDownIcon,
@@ -14,27 +15,27 @@ import { RolePlatformSlider } from "../../components/ui/RolePlatformSlider";
 import { SectionTitle } from "../../components/ui/SectionTitle";
 
 const STATS = [
-  { value: 150, suffix: "+", label: "Projets réalisés" },
-  { value: 12, suffix: "", label: "ans d'expérience" },
-  { value: 200, suffix: "+", label: "Clients satisfaits" },
-  { value: 50, suffix: "+", label: "Intervenants partenaires" },
+  { value: 150, suffix: "+", labelKey: "stats.projects" },
+  { value: 12, suffix: "", labelKey: "stats.experience" },
+  { value: 200, suffix: "+", labelKey: "stats.clients" },
+  { value: 50, suffix: "+", labelKey: "stats.partners" },
 ] as const;
 
 const SERVICES_PREVIEW = [
   {
     icon: BuildingOffice2Icon,
-    title: "Architecture",
-    description: "Conception et suivi de projets architecturaux",
+    titleKey: "services.architecture",
+    descKey: "services.architecture_desc",
   },
   {
     icon: MapIcon,
-    title: "Urbanisme",
-    description: "Études et planification urbaine",
+    titleKey: "services.urbanism",
+    descKey: "services.urbanism_desc",
   },
   {
     icon: ClipboardDocumentListIcon,
-    title: "Gestion de dossiers",
-    description: "Suivi administratif et réglementaire",
+    titleKey: "services.management",
+    descKey: "services.management_desc",
   },
 ] as const;
 
@@ -53,6 +54,8 @@ const itemVariants = {
 };
 
 export function HomePage() {
+  const { t } = useTranslation();
+
   return (
     <>
       {/* HERO */}
@@ -74,8 +77,8 @@ export function HomePage() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="font-display text-4xl font-semibold leading-tight sm:text-6xl lg:text-7xl"
           >
-            <span className="block text-brand-400">Bâtissons ensemble</span>
-            <span className="mt-2 block text-white">l'architecture de demain</span>
+            <span className="block text-brand-400">{t("hero.title1")}</span>
+            <span className="mt-2 block text-white">{t("hero.title2")}</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
@@ -83,7 +86,7 @@ export function HomePage() {
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="mx-auto mt-6 max-w-2xl text-lg text-neutral-300 sm:text-xl"
           >
-            Cabinet d'architecture et d'urbanisme au Maroc
+            {t("hero.subtitle")}
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -95,13 +98,13 @@ export function HomePage() {
               to="/register"
               className="rounded-lg bg-brand-500 px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-brand-600"
             >
-              Démarrer un projet
+              {t("hero.cta_primary")}
             </Link>
             <Link
               to="/services"
               className="rounded-lg border border-white/60 px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-white/10"
             >
-              Découvrir nos services
+              {t("hero.cta_secondary")}
             </Link>
           </motion.div>
         </SectionContainer>
@@ -120,11 +123,11 @@ export function HomePage() {
         <SectionContainer>
           <div className="grid grid-cols-2 gap-12 lg:grid-cols-4">
             {STATS.map((stat) => (
-              <div key={stat.label} className="p-8 text-center">
+              <div key={stat.labelKey} className="p-8 text-center">
                 <p className="font-display text-4xl font-bold text-brand-500 sm:text-5xl">
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                 </p>
-                <p className="mt-2 text-sm text-gray-500">{stat.label}</p>
+                <p className="mt-2 text-sm text-gray-500">{t(stat.labelKey)}</p>
               </div>
             ))}
           </div>
@@ -134,7 +137,10 @@ export function HomePage() {
       {/* SERVICES PREVIEW */}
       <section className="bg-[#FDF8F0] py-20">
         <SectionContainer>
-          <SectionTitle title="Nos Services" subtitle="Des solutions complètes pour vos projets architecturaux" />
+          <SectionTitle
+            title={t("services.title")}
+            subtitle={t("services.subtitle")}
+          />
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -143,14 +149,18 @@ export function HomePage() {
             className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
           >
             {SERVICES_PREVIEW.map((service) => (
-              <motion.div key={service.title} variants={itemVariants}>
+              <motion.div key={service.titleKey} variants={itemVariants}>
                 <Card
                   hover={false}
                   className="h-full rounded-2xl p-10 text-center shadow-[0_2px_8px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(196,122,30,0.12)]"
                 >
                   <service.icon className="mx-auto h-12 w-12 text-brand-500" />
-                  <h3 className="mt-4 font-display text-xl font-semibold">{service.title}</h3>
-                  <p className="mt-2 text-sm text-neutral-500">{service.description}</p>
+                  <h3 className="mt-4 font-display text-xl font-semibold">
+                    {t(service.titleKey)}
+                  </h3>
+                  <p className="mt-2 text-sm text-neutral-500">
+                    {t(service.descKey)}
+                  </p>
                 </Card>
               </motion.div>
             ))}
@@ -160,7 +170,7 @@ export function HomePage() {
               to="/services"
               className="inline-flex rounded-lg border border-brand-500 px-6 py-3 text-sm font-semibold text-brand-600 transition-colors hover:bg-brand-500 hover:text-white"
             >
-              Voir tous les services
+              {t("services.see_all")}
             </Link>
           </div>
         </SectionContainer>
@@ -174,16 +184,14 @@ export function HomePage() {
       <section className="bg-brand-500 py-20">
         <SectionContainer className="max-w-3xl text-center">
           <h2 className="font-display text-3xl font-semibold text-white sm:text-4xl">
-            Prêt à transformer vos projets ?
+            {t("cta.title")}
           </h2>
-          <p className="mt-4 text-lg text-brand-100">
-            Rejoignez la plateforme MyMoussaid et pilotez vos chantiers avec excellence.
-          </p>
+          <p className="mt-4 text-lg text-brand-100">{t("cta.subtitle")}</p>
           <Link
             to="/register"
             className="mt-8 inline-flex rounded-lg bg-white px-8 py-3.5 text-sm font-semibold text-brand-600 transition-colors hover:bg-brand-50"
           >
-            Créer un compte gratuitement
+            {t("cta.button")}
           </Link>
         </SectionContainer>
       </section>

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import {
   HeartIcon,
@@ -24,14 +25,16 @@ const PARTNERS = [
 ] as const;
 
 export function AboutPage() {
+  const { t } = useTranslation();
+
   return (
     <>
       <section className="bg-neutral-900 pt-20 pb-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <nav className="mb-4 text-sm text-neutral-400">
-            <Link to="/" className="hover:text-brand-400">Accueil</Link>
+            <Link to="/" className="hover:text-brand-400">{t("nav.home")}</Link>
             <span className="mx-2">/</span>
-            <span className="text-brand-400">À propos</span>
+            <span className="text-brand-400">{t("nav.about")}</span>
           </nav>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}

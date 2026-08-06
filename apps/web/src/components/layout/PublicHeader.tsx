@@ -16,11 +16,11 @@ const SERVICE_LINKS = [
 ] as const;
 
 const ROLE_LINKS = [
-  { to: "/roles/manager", label: "Manager" },
-  { to: "/roles/intervenant", label: "Intervenant" },
-  { to: "/roles/secretaire", label: "Secrétaire" },
-  { to: "/roles/chef-projet", label: "Chef de projet" },
-  { to: "/roles/partenaire", label: "Partenaire" },
+  { to: "/roles/manager", labelKey: "publicRoles.manager" },
+  { to: "/roles/intervenant", labelKey: "publicRoles.intervenant" },
+  { to: "/roles/secretaire", labelKey: "publicRoles.secretaire" },
+  { to: "/roles/chef-projet", labelKey: "publicRoles.chef_projet" },
+  { to: "/roles/partenaire", labelKey: "publicRoles.partenaire" },
 ] as const;
 
 const NAV_LINK_CLASS = ({ isActive }: { isActive: boolean }) =>
@@ -88,7 +88,12 @@ export function PublicHeader() {
   const [rolesOpen, setRolesOpen] = useState(false);
   const [mobileRolesOpen, setMobileRolesOpen] = useState(false);
   const { topBarVisible } = useScroll();
-  const { languages, currentLang, changeLanguage } = useLanguage();
+  const { languages, currentLang, changeLanguage, t } = useLanguage();
+
+  const roleLinks = ROLE_LINKS.map((link) => ({
+    to: link.to,
+    label: t(link.labelKey),
+  }));
 
   useEffect(() => {
     if (!mobileOpen) return;
@@ -123,11 +128,11 @@ export function PublicHeader() {
         {/* Navigation — desktop */}
         <nav className="hidden flex-1 items-center justify-center gap-5 md:flex xl:gap-8">
           <NavLink to="/" className={NAV_LINK_CLASS} end>
-            Accueil
+            {t("nav.home")}
           </NavLink>
 
           <NavDropdown
-            label="Services"
+            label={t("nav.services")}
             links={SERVICE_LINKS}
             open={servicesOpen}
             onOpen={() => setServicesOpen(true)}
@@ -135,19 +140,19 @@ export function PublicHeader() {
           />
 
           <NavDropdown
-            label="Rôles"
-            links={ROLE_LINKS}
+            label={t("nav.roles")}
+            links={roleLinks}
             open={rolesOpen}
             onOpen={() => setRolesOpen(true)}
             onClose={() => setRolesOpen(false)}
           />
 
           <NavLink to="/contact" className={NAV_LINK_CLASS}>
-            Contact
+            {t("nav.contact")}
           </NavLink>
 
           <NavLink to="/about" className={NAV_LINK_CLASS}>
-            À propos
+            {t("nav.about")}
           </NavLink>
         </nav>
 
@@ -157,13 +162,13 @@ export function PublicHeader() {
             to="/login"
             className="whitespace-nowrap rounded-md border-[1.5px] border-gray-300 bg-transparent px-4 py-2 text-sm font-medium text-gray-700 outline-none transition-colors hover:border-brand-500 hover:text-brand-500"
           >
-            Se connecter
+            {t("nav.login")}
           </Link>
           <Link
             to="/register"
             className="whitespace-nowrap rounded-md bg-brand-500 px-4 py-2 text-sm font-medium text-white outline-none transition-colors hover:bg-brand-600"
           >
-            S'inscrire
+            {t("nav.register")}
           </Link>
         </div>
 
@@ -230,7 +235,7 @@ export function PublicHeader() {
                   onClick={closeMobileMenu}
                   className="block border-b border-[#F3F4F6] py-3.5 text-lg font-medium text-[#1C1917] transition-colors hover:text-[#C47A1E]"
                 >
-                  Accueil
+                  {t("nav.home")}
                 </Link>
               </motion.div>
               <motion.div variants={MOBILE_ITEM_VARIANTS}>
@@ -239,7 +244,7 @@ export function PublicHeader() {
                   onClick={closeMobileMenu}
                   className="block border-b border-[#F3F4F6] py-3.5 text-lg font-medium text-[#1C1917] transition-colors hover:text-[#C47A1E]"
                 >
-                  Services
+                  {t("nav.services")}
                 </Link>
               </motion.div>
               <motion.div variants={MOBILE_ITEM_VARIANTS}>
@@ -248,7 +253,7 @@ export function PublicHeader() {
                   onClick={() => setMobileRolesOpen((value) => !value)}
                   className="flex w-full items-center justify-between border-b border-[#F3F4F6] py-3.5 text-left text-lg font-medium text-[#1C1917] transition-colors hover:text-[#C47A1E]"
                 >
-                  Rôles
+                  {t("nav.roles")}
                   <ChevronDownIcon
                     className={`h-5 w-5 transition-transform duration-200 ${
                       mobileRolesOpen ? "rotate-180" : ""
@@ -263,7 +268,7 @@ export function PublicHeader() {
                       exit={{ height: 0, opacity: 0 }}
                       className="overflow-hidden border-b border-[#F3F4F6]"
                     >
-                      {ROLE_LINKS.map((role) => (
+                      {roleLinks.map((role) => (
                         <Link
                           key={role.to}
                           to={role.to}
@@ -283,7 +288,7 @@ export function PublicHeader() {
                   onClick={closeMobileMenu}
                   className="block border-b border-[#F3F4F6] py-3.5 text-lg font-medium text-[#1C1917] transition-colors hover:text-[#C47A1E]"
                 >
-                  Contact
+                  {t("nav.contact")}
                 </Link>
               </motion.div>
               <motion.div variants={MOBILE_ITEM_VARIANTS}>
@@ -292,7 +297,7 @@ export function PublicHeader() {
                   onClick={closeMobileMenu}
                   className="block border-b border-[#F3F4F6] py-3.5 text-lg font-medium text-[#1C1917] transition-colors hover:text-[#C47A1E]"
                 >
-                  À propos
+                  {t("nav.about")}
                 </Link>
               </motion.div>
 
@@ -311,7 +316,7 @@ export function PublicHeader() {
                         key={language.code}
                         type="button"
                         onClick={() => {
-                          changeLanguage(language.code);
+                          void changeLanguage(language.code);
                           closeMobileMenu();
                         }}
                         className={`rounded-lg border-[1.5px] px-4 py-2.5 text-sm font-medium transition-colors ${
@@ -336,14 +341,14 @@ export function PublicHeader() {
                   onClick={closeMobileMenu}
                   className="w-full rounded-lg border-[1.5px] border-[#C47A1E] px-4 py-3 text-center text-sm font-semibold text-[#C47A1E]"
                 >
-                  Se connecter
+                  {t("nav.login")}
                 </Link>
                 <Link
                   to="/register"
                   onClick={closeMobileMenu}
                   className="w-full rounded-lg bg-[#C47A1E] px-4 py-3 text-center text-sm font-semibold text-white"
                 >
-                  S'inscrire
+                  {t("nav.register")}
                 </Link>
               </motion.div>
             </motion.nav>

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "cd apps/web && npm install && npm run build && mkdir -p ../../public_html && cp -r dist/. ../../public_html/",
+    "build": "cd apps/web && npm install && npm run build",
     "start": "node apps/api/dist/index.js"
   },
   "engines": {

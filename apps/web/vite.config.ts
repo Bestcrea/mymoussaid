@@ -10,8 +10,8 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: "dist",
-    emptyOutDir: true,
+    outDir: path.resolve(__dirname, "../../public_html"),
+    emptyOutDir: false,
   },
   server: {
     port: 5173,

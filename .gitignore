@@ -16,7 +16,6 @@ apps/*/.env.*
 # Builds
 dist/
 build/
-public_html/
 *.tsbuildinfo
 
 # Logs & caches
